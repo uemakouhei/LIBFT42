@@ -1,6 +1,6 @@
 #include "libft.h"
-
- char    *ft_strcpy(char *s1, char *s2);
+size_t ft_strlen(const char *s);
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char    *ft_strdup(const char *src)
 {
 	char    *ptr;
@@ -9,24 +9,10 @@ char    *ft_strdup(const char *src)
 	{
 		return (NULL);
 	}
-	ptr = malloc(ft_strlen(src) + 1);
+	ptr = (char *)malloc(ft_strlen(src) + 1);
 	if (ptr)
 	{
-		ft_strcpy(ptr, src);
+		ft_strlcpy(ptr, src,ft_strlen(src));
 	}
 	return (ptr);
-}
-
-char    *ft_strcpy(char *s1, char *s2)
-{
-	int current_char;
-
-	current_char = 0;
-	while (s2[current_char] != '\0')
-	{
-		s1[current_char] = s2[current_char];
-		current_char++;
-	}
-	s1[current_char] = '\0';
-	return (s1);
 }
