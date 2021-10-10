@@ -26,7 +26,7 @@ static int output(const char *number, long long index, int symbtyp)
 	long long num;              
 
 	num = 0;
-	while (*number >= 48 && *number <= 57)
+	while (number[index] != 0)
 	{
 		if (num * symbtyp > 2147483647)
 		{
@@ -38,6 +38,8 @@ static int output(const char *number, long long index, int symbtyp)
 			errno = 34;
 			return ((int)LONG_MIN * -1);
 		}
+		if (number[index] < 48 || number[index] > 57)
+			break ;
 		num += number[index] - 48;
 		num *= 10;
 		number++;
