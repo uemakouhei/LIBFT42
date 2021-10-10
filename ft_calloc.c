@@ -13,6 +13,6 @@ void	*ft_calloc(size_t count, size_t size)
 		return(NULL);
 		errno =  12;
 	}
-	ft_memset(pt,'0',count);
-	return (pt);	
+	ft_bzero(pt,count * size);
+	return (pt);
 }

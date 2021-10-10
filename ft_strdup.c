@@ -10,9 +10,8 @@ char    *ft_strdup(const char *src)
 		return (NULL);
 	}
 	ptr = (char *)malloc(ft_strlen(src) + 1);
-	if (ptr)
-	{
-		ft_strlcpy(ptr, src,ft_strlen(src));
-	}
+	if (ptr == NULL)
+		return (NULL);
+	ft_strlcpy(ptr, src,ft_strlen(src));
 	return (ptr);
 }

@@ -2,7 +2,7 @@
 
 char *ft_strrchr(const char *s, int c)
 {
-	int i; 
+	size_t i; 
 
 	i = 0;
 	while (*s++ != '\0')
@@ -11,7 +11,7 @@ char *ft_strrchr(const char *s, int c)
 		return ((char *)s + i);	
 	while (i--)
 	{
-	       if (*s == c)
+	       if (*s == (char)c)
 	       	return ((char *)s);	       
 	}
 	return (NULL);

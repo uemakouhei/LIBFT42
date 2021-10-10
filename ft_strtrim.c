@@ -1,7 +1,4 @@
 #include "libft.h"
-char *ft_strnstr(const char *haystack, const char *needle, size_t len);
-size_t ft_strlen(const char *s);
-
 static char *trimin(const char *s,const char *set,char *str)
 {
 	unsigned int i;
@@ -16,7 +13,7 @@ static char *trimin(const char *s,const char *set,char *str)
 	{     
 		j = 0;
 		if (s[i] == set[j])
-		{          
+		{  
 			while (s[i + j] == set[j])
 			{                 
 				j++;      
@@ -27,7 +24,8 @@ static char *trimin(const char *s,const char *set,char *str)
 		str[k] = s[i];
 		i++;
 		k++;
-	}  
+	} 
+	str[k] = '\0';
 	return (str);
 }
 
@@ -36,19 +34,15 @@ char *ft_strtrim(char const *s1, char const *set)
 {	
 	int i;
 	char *str;
-	if (ft_strnstr(s1,set,ft_strlen(s1)) != 0)
-	{
-		i = 0;
-		str =(char *)malloc(sizeof(char) * (ft_strlen(s1) - ft_strlen(set) + 1));
-		if (str == NULL)
-			return (NULL);
-		while (s1[i] != '\0')
-		{
-			trimin(s1,set,str);			
-			i++;	
-		}
-		return (str);
-	}
+	if (s1 == NULL)
+		return (NULL);
+	if (set == NULL)
+		return (ft_strdup(s1));
+	i = 0;
+	str = (char *)malloc(sizeof(char) * ((ft_strlen(s1) - ft_strlen(set) + 1)));
+	if (str == NULL)
+		return (NULL);
+	trimin(s1,set,str);			
+	return (str);
 	return ((char *)s1);
 }
-
