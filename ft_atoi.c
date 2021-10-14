@@ -14,9 +14,9 @@ int ft_atoi(const char *str)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
-		i++;
 		if (str[i] == '-')
 			type = -1;
+		i++;
 	}
 	answer = output(str, i, type);
 	return (answer);
@@ -31,7 +31,7 @@ static int output(const char *number, long long index, int symbtyp)
 		if (num * symbtyp > 2147483647)
 		{
 			errno = 34;
-			return ((int)LONG_MAX * -1);
+			return ((int)LONG_MAX);
 		}
 		else if (num * symbtyp < -2147483648)
 		{

@@ -3,12 +3,12 @@ void *ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char *str;
 	unsigned char cc;
-
+	
 	cc = (unsigned char)c;
 	str = (unsigned char *)s;
 	while (n--)
 	{
-		if (*str == c)
+		if (*str == cc)
 			return ((void *)str);
 		str++;
 	}

@@ -1,48 +1,39 @@
 #include "libft.h"
-static char *trimin(const char *s,const char *set,char *str)
+
+static  unsigned int    ft_charset(char c, char const *charset)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int k;
+	size_t  i;
 
-	if (*set == '\0')
-		return ((char *)s);
 	i = 0;
-	k = 0;
-	while (s[i] != '\0')
-	{     
-		j = 0;
-		if (s[i] == set[j])
-		{  
-			while (s[i + j] == set[j])
-			{                 
-				j++;      
-				if (set[j] == '\0')
-					i = i + j;
-			}              
-		}
-		str[k] = s[i];
+	while (charset[i])
+	{
+		if (charset[i] == c)
+			return (1);
 		i++;
-		k++;
-	} 
-	str[k] = '\0';
-	return (str);
+	}
+	return (0);
 }
+char    *ft_strtrim(char const *s1, char const *set)
+{
+	char*str;
+	size_t      start;
+	size_t      goal;
+	size_t      i;
 
-
-char *ft_strtrim(char const *s1, char const *set)
-{	
-	int i;
-	char *str;
-	if (s1 == NULL)
+	if (!s1 || !set)
 		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
+	start = 0;
+	while (s1[start] && ft_charset(s1[start], set))
+		start++;
+	goal = ft_strlen(s1);
+	while (goal > start && ft_charset(s1[goal - 1], set))
+		goal--;
+	str = (char *)malloc(sizeof(*s1) * (goal - start + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	str = (char *)malloc(sizeof(char) * ((ft_strlen(s1) - ft_strlen(set) + 1)));
-	if (str == NULL)
-		return (NULL);
-	trimin(s1,set,str);			
+	while (start < goal)
+		str[i++] = s1[start++];
+	str[i] = 0;
 	return (str);
-	return ((char *)s1);
-}
+} 

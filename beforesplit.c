@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdio.h>
 static char     **ft_clear(char **str, size_t n);
 static size_t splitlen(char const *str,char ch);
 static char *strmakedo(char const *s,char c);
@@ -15,13 +16,14 @@ char **ft_split(char const *s, char c)
 	while (i < splitlen(s,c))
 	{
 		spstrs[i] = strmake(s,i,c);
-		if (spstrs[i] == NULL) {
+		if (spstrs[i] == NULL)
+		{
 			ft_clear(spstrs,i);
 			return(NULL);
 		}
 		i++;
 	}
-	spstrs[splitlen(s,c)] = NULL;
+	spstrs[i] = NULL;
 	return (spstrs);    
 }
 
@@ -40,7 +42,7 @@ static size_t splitlen(char const *str,char ch)
 		{
 			v++;
 			while (str[i] != '\0' && str[i] != ch)
-				i++;
+			i++;
 		}
 	}
 	return (v);
@@ -63,12 +65,14 @@ static char *strmakedo(char const *s,char c)
 	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (str == NULL)
 		return(NULL);
+
 	while(j != i)
 	{
 		str[j] = s[j];
 		j++;
 	}
 	str[j] = '\0';
+
 	return(str);
 }
 
@@ -82,8 +86,6 @@ static char *strmake(char const *s,size_t positiondigit,char c)
 	i = 0;
 	j = 0;
 	position = 0;
-	if (s == NULL)
-		return (NULL);
 	while (s[i] == c && s[i] != '\0')
 		i++;
 	while (s[i] != '\0')

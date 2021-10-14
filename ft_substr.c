@@ -7,20 +7,21 @@ char *ft_substr(char const *s, unsigned int start,size_t len)
 	char *str;
 
 	i = 0;
-	str = (char *)malloc(sizeof(char) * len + 1);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return(0);
-	if (len != 0 && start <= ft_strlen(s))
+	while (start != 0)
 	{
-		while (start-- != 0)
-			s++;
-		while (*s != '\0' && len != 0)
-		{	
-			str[i++] = *s++;	
-			len--;
-		}
-		str[i] = '\0';
-		return (str);
+		s++;
+		start--;
 	}
-	return (NULL);
+	while (*s != '\0' && len != 0)
+	{	
+		str[i++] = *s++;	
+		len--;
+	}
+	str[i] = '\0';
+	return (str);
 }

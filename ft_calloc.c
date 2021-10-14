@@ -3,10 +3,15 @@ void *ft_memset(void *buf, int ch, size_t n);
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	if (count == 0 || size == 0)
-		return (NULL);
 	void *pt;
-
+	if (count == 0 || size == 0)
+	{
+		pt = malloc(1);
+		if (pt == NULL)
+			return (NULL);
+		ft_bzero(pt,1);
+		return (pt);
+	}
 	pt = malloc(size * count);
 	if (pt == NULL)
 	{
