@@ -1,7 +1,6 @@
 #include "libft.h"
 static char     **ft_clear(char **str, size_t n);
-static size_t splitlen(char const *str,char ch);
-static char *strmakedo(char const *s,char c);
+static size_t splitlen(char const *str,char ch); static char *strmakedo(char const *s,char c);
 static char *strmake(char const *s,size_t positiondigit,char c);
 char **ft_split(char const *s, char c)
 {

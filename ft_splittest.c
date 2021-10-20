@@ -1,8 +1,7 @@
 #include "libft.h"
-#include <stdio.h>
+#include<stdio.h>
 static char     **ft_clear(char **str, size_t n);
-static size_t splitlen(char const *str,char ch);
-static char *strmakedo(char const *s,char c);
+static size_t splitlen(char const *str,char ch); static char *strmakedo(char const *s,char c);
 static char *strmake(char const *s,size_t positiondigit,char c);
 char **ft_split(char const *s, char c)
 {
@@ -16,14 +15,14 @@ char **ft_split(char const *s, char c)
 	while (i < splitlen(s,c))
 	{
 		spstrs[i] = strmake(s,i,c);
-		if (spstrs[i] == NULL)
-		{
+		if (spstrs[i] == NULL) {
 			ft_clear(spstrs,i);
 			return(NULL);
 		}
 		i++;
 	}
-	spstrs[i] = NULL;
+	printf("**mallocsize = %lu + 1\n",i);
+	spstrs[splitlen(s,c)] = NULL;
 	return (spstrs);    
 }
 
@@ -42,7 +41,7 @@ static size_t splitlen(char const *str,char ch)
 		{
 			v++;
 			while (str[i] != '\0' && str[i] != ch)
-			i++;
+				i++;
 		}
 	}
 	return (v);
@@ -63,16 +62,15 @@ static char *strmakedo(char const *s,char c)
 		i++;
 	}
 	str = (char *)malloc(sizeof(char) * (i + 1));
+	printf("mallocsize = %lu + 1\n",i);
 	if (str == NULL)
 		return(NULL);
-
 	while(j != i)
 	{
 		str[j] = s[j];
 		j++;
 	}
 	str[j] = '\0';
-
 	return(str);
 }
 
@@ -86,6 +84,8 @@ static char *strmake(char const *s,size_t positiondigit,char c)
 	i = 0;
 	j = 0;
 	position = 0;
+	if (s == NULL)
+		return (NULL);
 	while (s[i] == c && s[i] != '\0')
 		i++;
 	while (s[i] != '\0')
@@ -109,4 +109,18 @@ static char     **ft_clear(char **str, size_t n)
 	}
 	free(str);
 	return (NULL);
+}
+
+int main(void)
+{
+	size_t i;
+	char    *s = "      split       this for   me  !       ";
+	char    **result = ft_split(s, ' ');
+
+	i = 0;
+	while (i != 6)
+	{
+		printf("%s\n",result[i]);	
+		i++;
+	}
 }
