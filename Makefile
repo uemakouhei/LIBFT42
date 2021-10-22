@@ -4,14 +4,22 @@ ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strc
 ft_memcpy.c  ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlen.c\
 ft_strmapi.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c\
 ft_tolower.c ft_toupper.c ft_strncmp.c ft_strlcpy.c
+BONUS = ft_lstsize.c ft_lstnew.c ft_lstmap.c ft_lstlast.c ft_lstiter.c ft_lstdelone.c \
+ft_lstclear.c ft_lstadd_front.c ft_lstadd_back.c
 
 OBJS	= $(SRCS:%.c=%.o)
+
+BNS_OBJS = $(BONUS:%.c=%.o)
 
 CC	= gcc
 
 RM	= rm -rf
 
 CFLAGS	= -Wall -Wextra -Werror
+
+ifdef WITH_BONUS
+OBJS += $(BNS_OBJS)
+endif
 
 NAME	= libft.a
 
@@ -24,11 +32,13 @@ $(NAME)	: $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean	:
-	$(RM) $(OBJS) 
+	$(RM) $(OBJS) $(OBJS_B)
 
 fclean	: clean
 	$(RM) $(NAME)
 
 re	:fclean all
+
+bonus: make WITH_BONUS=1
 
 .PHONY:	all clean fclean re
