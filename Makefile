@@ -32,7 +32,7 @@ $(NAME)	: $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean	:
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS) $(BNS_OBJS)
 
 fclean	: clean
 	$(RM) $(NAME)
