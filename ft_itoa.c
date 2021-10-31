@@ -1,6 +1,6 @@
 #include "libft.h"
-static void putitoa(int n,int digit,char *str)
-{ 
+static void	putitoa(int n, int digit, char *str)
+{
 	str[digit] = '\0';
 	digit--;
 	if (n < 0)
@@ -20,16 +20,17 @@ static void putitoa(int n,int digit,char *str)
 		digit--;
 	}
 }
-char *ft_itoa(int n)
+
+char	*ft_itoa(int n)
 {
-	int digit;
-	char *str;
-	int n2;
+	int		digit;
+	char	*str;
+	int		n2;
 
 	n2 = n;
 	digit = 0;
 	if (n == -2147483648)
-		str =  ft_strdup("-2147483648");
+		str = ft_strdup("-2147483648");
 	else if (n == 0)
 		str = ft_strdup("0");
 	else if (n < 0)
@@ -47,7 +48,7 @@ char *ft_itoa(int n)
 		str = (char *)malloc(sizeof(char) * (digit + 1));
 		if (str == NULL)
 			return (NULL);
-		putitoa(n,digit,str);
+		putitoa(n, digit, str);
 	}
 	return (str);
 }

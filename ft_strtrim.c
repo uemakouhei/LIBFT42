@@ -1,8 +1,8 @@
 #include "libft.h"
 
-static  unsigned int    ft_charset(char c, char const *charset)
+static unsigned int	ft_charset(char c, char const *charset)
 {
-	size_t  i;
+	size_t	i;
 
 	i = 0;
 	while (charset[i])
@@ -13,12 +13,13 @@ static  unsigned int    ft_charset(char c, char const *charset)
 	}
 	return (0);
 }
-char    *ft_strtrim(char const *s1, char const *set)
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char*str;
-	size_t      start;
-	size_t      goal;
-	size_t      i;
+	char	*str;
+	size_t	start;
+	size_t	goal;
+	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -36,4 +37,4 @@ char    *ft_strtrim(char const *s1, char const *set)
 		str[i++] = s1[start++];
 	str[i] = 0;
 	return (str);
-} 
+}
