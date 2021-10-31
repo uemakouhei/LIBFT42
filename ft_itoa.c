@@ -33,18 +33,12 @@ char	*ft_itoa(int n)
 		str = ft_strdup("-2147483648");
 	else if (n == 0)
 		str = ft_strdup("0");
-	else if (n < 0)
-	{
+	else if (n < 0 && digit++ != 1)
 		n2 = n2 * -1;
-		digit++;
-	}
 	if (n2 > 0)
 	{
-		while (n2 > 0)
-		{
+		while (n2 > 0 && digit++ != 12)
 			n2 /= 10;
-			digit++;
-		}
 		str = (char *)malloc(sizeof(char) * (digit + 1));
 		if (str == NULL)
 			return (NULL);
