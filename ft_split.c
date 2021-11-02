@@ -1,33 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 16:53:40 by kuema             #+#    #+#             */
+/*   Updated: 2021/11/02 17:15:19 by kuema            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-static char		**ft_clear(char **str, size_t n);
-static size_t	splitlen(char const *str, char ch);
-static char		*strmakedo(char const *s, char c);
-static char		*strmake(char const *s, size_t positiondigit, char c);
-
-char	**ft_split(char const *s, char c)
-{
-	char	**spstrs;
-	size_t	i;
-
-	i = 0;
-	if (s == NULL)
-		return (NULL);
-	spstrs = (char **)malloc(sizeof(char *) * (splitlen(s, c) + 1));
-	if (spstrs == NULL)
-		return (NULL);
-	while (i < splitlen(s, c))
-	{
-		spstrs[i] = strmake(s, i, c);
-		if (spstrs[i] == NULL)
-		{
-			ft_clear(spstrs, i);
-			return (NULL);
-		}
-		i++;
-	}
-	spstrs[splitlen(s, c)] = NULL;
-	return (spstrs);
-}
 
 static size_t	splitlen(char const *str, char ch)
 {
@@ -110,4 +93,29 @@ static char	**ft_clear(char **str, size_t n)
 	}
 	free(str);
 	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**spstrs;
+	size_t	i;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	spstrs = (char **)malloc(sizeof(char *) * (splitlen(s, c) + 1));
+	if (spstrs == NULL)
+		return (NULL);
+	while (i < splitlen(s, c))
+	{
+		spstrs[i] = strmake(s, i, c);
+		if (spstrs[i] == NULL)
+		{
+			ft_clear(spstrs, i);
+			return (NULL);
+		}
+		i++;
+	}
+	spstrs[splitlen(s, c)] = NULL;
+	return (spstrs);
 }
