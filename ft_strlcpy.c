@@ -26,3 +26,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	*(dst + i) = '\0';
 	return (ft_strlen(src));
 }
+#include<stdio.h>
+int main(void)
+{
+	ft_strlcpy(NULL,NULL,5);
+	//strlcpy(NULL,NULL,5);
+	
+}

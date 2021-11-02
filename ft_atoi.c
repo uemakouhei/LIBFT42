@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
@@ -23,7 +23,7 @@ int	ft_atoi(const char *str)
 	type = 1;
 	answer = 0;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+			|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -44,13 +44,12 @@ static int	output(const char *number, long long index, int symbtyp)
 	{
 		if (num * symbtyp > 2147483647)
 		{
-			errno = 34;
-			return ((int)LONG_MAX);
+			return (-1);
 		}
 		else if (num * symbtyp < -2147483648)
 		{
 			errno = 34;
-			return ((int)LONG_MIN * -1);
+			return (0);
 		}
 		if (number[index] < 48 || number[index] > 57)
 			break ;
@@ -62,4 +61,38 @@ static int	output(const char *number, long long index, int symbtyp)
 	if (symbtyp == -1)
 		num = 0 - num;
 	return ((int)num);
+}
+
+#include<stdio.h>
+int main(void)
+{
+	char    n[40];
+	sprintf(n, "%li", LONG_MAX);
+
+	int             i1 = atoi(n);
+	int             i2 = ft_atoi(n);
+	if (i1 == i2)
+		puts("TEST_SUCCESS");
+
+	char    n2[40];
+	sprintf(n, "%li", LONG_MIN);
+
+	int             i21 = atoi(n2);
+	int             i22 = ft_atoi(n2);
+	if (i21 == i22)
+		puts("TEST_SUCCESS");
+	char    n3[40] = "99999999999999999999999999";
+
+	int             i13 = atoi(n3);
+	int             i23 = ft_atoi(n3);
+	if (i13 == i23)
+		puts("TEST_SUCCESS");
+
+
+	char    n4[40] = "99999999999999999999999999";
+
+        int             i14 = atoi(n4);
+        int             i24 = ft_atoi(n4);
+        if (i14 == i24)
+                puts("TEST_SUCCESS");
 }
