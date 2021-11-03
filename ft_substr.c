@@ -18,13 +18,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	if (!s)
-		return (NULL);
+		return (0);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
 	if (ft_strlen(s) < (start + len))
 		len = ft_strlen(s) - start;
 	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
+	if (str == 0)
 		return (0);
 	while (start-- != 0)
 		s++;

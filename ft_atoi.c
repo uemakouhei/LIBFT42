@@ -48,7 +48,6 @@ static int	output(const char *number, long long index, int symbtyp)
 		}
 		else if (num * symbtyp < -2147483648)
 		{
-			errno = 34;
 			return (0);
 		}
 		if (number[index] < 48 || number[index] > 57)

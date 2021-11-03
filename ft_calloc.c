@@ -22,7 +22,6 @@ void	*ft_calloc(size_t count, size_t size)
 		pt = malloc(1);
 		if (pt == NULL)
 		{
-			errno = 12;
 			return (NULL);
 		}
 		ft_bzero(pt, 1);
@@ -31,7 +30,6 @@ void	*ft_calloc(size_t count, size_t size)
 	pt = malloc(mallocsize);
 	if (pt == NULL)
 	{
-		errno = 12;
 		return (NULL);
 	}
 	ft_bzero(pt, mallocsize);
