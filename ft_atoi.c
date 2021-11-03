@@ -61,37 +61,3 @@ static int	output(const char *number, long long index, int symbtyp)
 		num = 0 - num;
 	return ((int)num);
 }
-
-#include<stdio.h>
-int main(void)
-{
-	char    n[40];
-	sprintf(n, "%li", LONG_MAX);
-
-	int             i1 = atoi(n);
-	int             i2 = ft_atoi(n);
-	if (i1 == i2)
-		puts("TEST_SUCCESS");
-
-	char    n2[40];
-	sprintf(n, "%li", LONG_MIN);
-
-	int             i21 = atoi(n2);
-	int             i22 = ft_atoi(n2);
-	if (i21 == i22)
-		puts("TEST_SUCCESS");
-	char    n3[40] = "99999999999999999999999999";
-
-	int             i13 = atoi(n3);
-	int             i23 = ft_atoi(n3);
-	if (i13 == i23)
-		puts("TEST_SUCCESS");
-
-
-	char    n4[40] = "99999999999999999999999999";
-
-        int             i14 = atoi(n4);
-        int             i24 = ft_atoi(n4);
-        if (i14 == i24)
-                puts("TEST_SUCCESS");
-}
