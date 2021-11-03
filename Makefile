@@ -11,6 +11,9 @@ OBJS    = $(SRCS:%.c=%.o)
 
 BNS_OBJS = $(BONUS:%.c=%.o)
 
+ifdef WITH_BONUS
+	OBJS +=  $(BNS_OBJS)
+endif
 CC      = gcc
 
 RM      = rm -rf
@@ -36,6 +39,6 @@ fclean  : clean
 re      : fclean all
 
 bonus: $(OBJS) $(BNS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BNS_OBJS)
+	make WITH_BONUS=1
 
 .PHONY: all clean fclean re bonus
