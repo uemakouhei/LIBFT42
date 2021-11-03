@@ -6,7 +6,7 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:42:40 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 16:43:14 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/04 07:00:07 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	if (dst == 0 || src == 0)
-        {
-                return (ft_strlen(dst) + ft_strlen(src));
-        }
+	{
+		return (ft_strlen(dst) + ft_strlen(src));
+	}
 	if (!dstsize)
 		return (ft_strlen(src));
 	while (src[i] != '\0' && i != dstsize - 1)

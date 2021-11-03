@@ -6,17 +6,17 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:13:27 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 17:13:28 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/04 06:57:38 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-char    *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char    *str;
-	size_t  start;
-	size_t  goal;
-	size_t  i;
+	char	*str;
+	size_t	start;
+	size_t	goal;
+	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -27,11 +27,11 @@ char    *ft_strtrim(char const *s1, char const *set)
 	while (goal > start && ft_strrchr(set, s1[goal - 1]))
 		goal--;
 	str = (char *)malloc(sizeof(*s1) * (goal - start + 1));
-	if (!str)      
+	if (!str)
 		return (NULL);
-	i = 0;                
-	while (start < goal) 
+	i = 0;
+	while (start < goal)
 		str[i++] = s1[start++];
-	str[i] = 0;           
-	return (str);         
+	str[i] = 0;
+	return (str);
 }

@@ -6,14 +6,14 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:51:54 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 16:51:56 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/04 06:58:30 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t 	i;
+	size_t	i;
 	char	*str;
 
 	i = 0;

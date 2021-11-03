@@ -1,40 +1,16 @@
-/************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 00:44:03 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 16:49:56 by kuema            ###   ########.fr       */
+/*   Created: 2021/11/04 07:09:10 by kuema             #+#    #+#             */
+/*   Updated: 2021/11/04 07:11:22 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-static int	output(const char *number, long long index, int symbtyp);
-
-int	ft_atoi(const char *str)
-{
-	int			answer;
-	int			type;
-	long long	i;
-
-	i = 0;
-	type = 1;
-	answer = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-			|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			type = -1;
-		i++;
-	}
-	answer = output(str, i, type);
-	return (answer);
-}
-
 static int	output(const char *number, long long index, int symbtyp)
 {
 	long long	num;
@@ -60,4 +36,26 @@ static int	output(const char *number, long long index, int symbtyp)
 	if (symbtyp == -1)
 		num = 0 - num;
 	return ((int)num);
+}
+
+int	ft_atoi(const char *str)
+{
+	int			answer;
+	int			type;
+	long long	i;
+
+	i = 0;
+	type = 1;
+	answer = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			type = -1;
+		i++;
+	}
+	answer = output(str, i, type);
+	return (answer);
 }
