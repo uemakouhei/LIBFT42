@@ -6,14 +6,14 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:59:51 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 17:06:15 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/04 19:27:08 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!s)
