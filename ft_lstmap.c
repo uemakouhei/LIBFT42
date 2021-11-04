@@ -6,7 +6,7 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:11:19 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 17:11:21 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/04 22:01:44 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	new_node = NULL;
 	new_list = NULL;
-	if (new_node)
-	{
-		new_list = new_node;
-		lst = lst -> next;
-	}
 	while (lst)
 	{
 		new_node = ft_lstnew(f(lst -> content));
