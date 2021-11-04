@@ -38,7 +38,7 @@ fclean  : clean
 
 re      : fclean all
 
-bonus: $(OBJS) $(BNS_OBJS)
+bonus:
 	make WITH_BONUS=1
 
 .PHONY: all clean fclean re bonus
