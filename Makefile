@@ -28,7 +28,7 @@ all     : $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
 clean   :
 	$(RM) $(OBJS) $(BNS_OBJS)
