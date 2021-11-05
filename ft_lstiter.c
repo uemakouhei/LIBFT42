@@ -6,7 +6,7 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:11:08 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 17:11:10 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/06 04:06:56 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (!f)
+		return ;
 	if (lst)
 	{
 		while (lst)

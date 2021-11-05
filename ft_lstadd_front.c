@@ -6,7 +6,7 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:08:42 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 17:08:44 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/06 03:59:52 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!new)
+		return ;
 	if (lst)
 	{
 		if (*lst)

@@ -6,7 +6,7 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:09:55 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 17:09:57 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/06 03:39:53 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (!lst)
 		return ;
-	del(lst -> content);
+	if (del)
+		del(lst -> content);
 	free(lst);
 }

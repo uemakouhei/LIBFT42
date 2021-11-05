@@ -6,25 +6,25 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 07:09:10 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/04 19:27:28 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/06 04:08:41 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 static int	output(const char *number, long long index, int symbtyp)
 {
-	long long	num;
+	long	num;
 
 	num = 0;
 	while (number[index] != 0)
 	{
 		if (num * symbtyp > 2147483647)
 		{
-			return (-1);
+			return ((int)LONG_MAX);
 		}
 		else if (num * symbtyp < -2147483648)
 		{
-			return (0);
+			return ((int)LONG_MIN);
 		}
 		if (number[index] < 48 || number[index] > 57)
 			break ;

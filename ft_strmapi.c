@@ -6,7 +6,7 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:56:41 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/02 17:13:08 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/06 04:06:17 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*str;
-	unsigned int	len;
-	unsigned int	i;
+	char	*str;
+	size_t	len;
+	size_t	i;
 
 	if (s == 0 || f == 0)
 		return (NULL);
