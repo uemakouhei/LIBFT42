@@ -12,15 +12,7 @@
 
 #include "libft.h"
 
-int overcheck(long index)
-{
-	if (index  > 2147483647)
-	{
-		return (1);
-	}
-	return (0);
-}
-static int	output(const char *number, long long index, int symbtyp)
+static int	output(const char *number, size_t index, int symbtyp)
 {
 	long	num;
 
@@ -29,11 +21,11 @@ static int	output(const char *number, long long index, int symbtyp)
 	{
 		if (num * symbtyp > 2147483647)
 		{
-			return ((int)LONG_MAX);
+			return ((int)num);
 		}
 		else if (num * symbtyp < -2147483648)
 		{
-			return ((int)LONG_MIN);
+			return ((int)num * symbtyp);
 		}
 		if (number[index] < 48 || number[index] > 57)
 			break ;
@@ -48,20 +40,16 @@ static int	output(const char *number, long long index, int symbtyp)
 }
 int	ft_atoi(const char *str)
 {
-	int			answer;
-	int			type;
-	long long	i;
+	int	answer;
+	int	type;
+	size_t	i;
 
 	i = 0;
 	type = 1;
 	answer = 0;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
 			|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
-	{
-		if (overcheck(i))
-			return (answer);
 		i++;
-	}
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
