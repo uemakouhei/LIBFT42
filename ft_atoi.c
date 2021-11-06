@@ -11,6 +11,15 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int overcheck(long index)
+{
+	if (index  > 2147483647)
+	{
+		return (1);
+	}
+	return (0);
+}
 static int	output(const char *number, long long index, int symbtyp)
 {
 	long	num;
@@ -37,7 +46,6 @@ static int	output(const char *number, long long index, int symbtyp)
 		num = 0 - num;
 	return ((int)num);
 }
-
 int	ft_atoi(const char *str)
 {
 	int			answer;
@@ -48,8 +56,12 @@ int	ft_atoi(const char *str)
 	type = 1;
 	answer = 0;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+			|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+	{
+		if (overcheck(i))
+			return (answer);
 		i++;
+	}
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
