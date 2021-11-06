@@ -6,7 +6,7 @@
 /*   By: kuema </var/mail/kuema>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 07:05:59 by kuema             #+#    #+#             */
-/*   Updated: 2021/11/07 00:58:16 by kuema            ###   ########.fr       */
+/*   Updated: 2021/11/07 01:02:19 by kuema            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*pt;
-	size_t allocate;
+	size_t	allocate;
 
 	allocate = count * size;
 	if (count == 0 || size == 0)
