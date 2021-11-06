@@ -15,22 +15,22 @@
 static size_t	splitlen(char const *str, char ch)
 {
 	size_t	i;
-	size_t	v;
+	size_t	mallocsize;
 
 	i = 0;
-	v = 0;
+	mallocsize = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == ch)
 			i++;
 		else
 		{
-			v++;
+			mallocsize++;
 			while (str[i] != '\0' && str[i] != ch)
 				i++;
 		}
 	}
-	return (v);
+	return (mallocsize);
 }
 
 static char	*strmakedo(char const *s, char c)
@@ -103,7 +103,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	spstrs = (char **)malloc(sizeof(char *) * (splitlen(s, c) + 1));
+	spstrs = (char **)malloc(sizeof(char *) * splitlen(s, c) + 1);
 	if (spstrs == NULL)
 		return (NULL);
 	while (i < splitlen(s, c))
@@ -111,8 +111,7 @@ char	**ft_split(char const *s, char c)
 		spstrs[i] = strmake(s, i, c);
 		if (spstrs[i] == NULL)
 		{
-			ft_clear(spstrs, i);
-			return (NULL);
+			return (ft_clear(spstrs, i));
 		}
 		i++;
 	}
