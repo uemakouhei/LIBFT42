@@ -21,11 +21,11 @@ static int	output(const char *number, size_t index, int symbtyp)
 	{
 		if (num * symbtyp > 2147483647)
 		{
-			return ((int)num);
+			return ((int)LONG_MAX);
 		}
 		else if (num * symbtyp < -2147483648)
 		{
-			return ((int)num * symbtyp);
+			return ((int)LONG_MIN);
 		}
 		if (number[index] < 48 || number[index] > 57)
 			break ;
